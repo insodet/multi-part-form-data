@@ -8,11 +8,11 @@ public class MultiPartFormData {
         return Builder()
     }
     
-    let boundary: String
-    var contentType: String {
+    public let boundary: String
+    public var contentType: String {
         "multipart/form-data; boundary=\(boundary)"
     }
-    let data: Data
+    public let data: Data
     
     private init(boundary: String, data: Data) {
         self.boundary = boundary
