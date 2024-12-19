@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MultiPartFormDataCoder",
+    platforms: [.iOS(.v15), .macOS(.v13), .watchOS(.v9)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -18,7 +19,8 @@ let package = Package(
             name: "MultiPartFormDataCoder"),
         .testTarget(
             name: "MultiPartFormDataCoderTests",
-            dependencies: ["MultiPartFormDataCoder"]
-        ),
+            dependencies: ["MultiPartFormDataCoder"],
+            resources: [.copy("Resources/test1.png"), .copy("Resources/test2.png")]
+        )
     ]
 )
