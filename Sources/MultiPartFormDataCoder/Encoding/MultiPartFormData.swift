@@ -25,6 +25,7 @@ public class MultiPartFormData {
         
         fileprivate init() {}
         
+        @discardableResult
         public func add(resource: DataResource, named name: String) -> Builder {
             if var value = self.resources[name] {
                 value.append(resource)
@@ -35,6 +36,7 @@ public class MultiPartFormData {
             return self
         }
         
+        @discardableResult
         public func add<Resources: Sequence>(contentsOf array: Resources, named name: String) -> Builder where Resources.Element == any DataResource {
             if var value = self.resources[name] {
                 value.append(contentsOf: array)
@@ -44,6 +46,7 @@ public class MultiPartFormData {
             }
             return self
         }
+        
         
         public func build() -> MultiPartFormData {
             let boundary = generateBoundary()
